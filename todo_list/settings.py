@@ -17,8 +17,8 @@ import dj_database_url
 from dotenv import load_dotenv
 
 
-if os.path.exists(".env.sample"):
-    load_dotenv(".env.sample")
+if os.path.exists("../.env"):
+    load_dotenv("../.env")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 
-ALLOWED_HOSTS = ["127.0.0.1", "todo-as7t.onrender.com"]
+ALLOWED_HOSTS = ["127.0.0.1", ""]
 
 INTERNAL_IPS = [
     "127.0.0.1",
@@ -89,12 +89,15 @@ WSGI_APPLICATION = "todo_list.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-
-db_config = dj_database_url.config(default='postgres://ftkxniio:z83Mvx6Jh6oAmiR9bHhcYZ5aT6Vmvt0S@snuffleupagus.db.elephantsql.com/ftkxniio')
-db_config['ATOMIC_REQUESTS'] = True
 DATABASES = {
-    'default': db_config,
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
 }
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES["default"].update(db_from_env)
 
 
 # Password validation
