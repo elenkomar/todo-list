@@ -36,7 +36,7 @@ for Windows
 
 **Demo**
 --------------------
-![create_tag.jpg](..%2Fdemo%2Fcreate_tag.jpg)
-![home_page.jpg](..%2Fdemo%2Fhome_page.jpg)
-![tags.jpg](..%2Fdemo%2Ftags.jpg)
-![creat_task.jpg](..%2Fdemo%2Fcreat_task.jpg)
+![creat_task.jpg](screenshot_pages%2Fcreat_task.jpg)
+![create_tag.jpg](screenshot_pages%2Fcreate_tag.jpg)
+![home_page.jpg](screenshot_pages%2Fhome_page.jpg)
+![tags.jpg](screenshot_pages%2Ftags.jpg)
